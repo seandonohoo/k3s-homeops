@@ -13,7 +13,7 @@ spec:
   persistentVolumeReclaimPolicy: Retain
   nfs:
     server: 10.26.10.20
-    path: /volume3/minio
+    path: /volume3/k3s-fast/minio
   mountOptions:
     - nfsvers=3
     - nconnect=8
