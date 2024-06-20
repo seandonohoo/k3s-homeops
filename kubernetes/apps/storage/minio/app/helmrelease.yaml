@@ -111,9 +111,9 @@ spec:
                   identifier: app
                   port: s3
     persistence:
-      config:
-        type: nfs
-        server: 10.26.10.20
-        path: /volume3/k3s-fast/minio
+      data:
+        accessMode: ReadWriteMany
+        size: 1Ti
+        storageClass: synology-csi-retain
         globalMounts:
-          - path: /data
+          - /data
