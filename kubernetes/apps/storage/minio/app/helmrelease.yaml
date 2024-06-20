@@ -31,7 +31,7 @@ spec:
           app:
             image:
               repository: quay.io/minio/minio
-              tag: RELEASE.2024-06-13T22-53-53Z@sha256:c7175077d39a8cc10c9fd611cdcc68b6a5b365793e9ac6f4198ffff1ef0fe555
+              tag: RELEASE.2024-06-11T03-13-30Z@sha256:bf461534d577e8600a22d4cac4830fc754cc6cce2547be399151c8763742f23e
             env:
               MINIO_API_CORS_ALLOW_ORIGIN: https://minio.donohoo.io,https://s3.donohoo.io
               MINIO_BROWSER_REDIRECT_URL: https://minio.donohoo.io
@@ -69,9 +69,9 @@ spec:
     defaultPodOptions:
       securityContext:
         runAsNonRoot: true
-        runAsUser: 568
-        runAsGroup: 568
-        fsGroup: 568
+        runAsUser: 1032
+        runAsGroup: 100
+        fsGroup: 100
         fsGroupChangePolicy: OnRootMismatch
         supplementalGroups: [10000]
         seccompProfile: { type: RuntimeDefault }
@@ -95,16 +95,16 @@ spec:
     ingress:
       app:
         annotations:
-          external-dns.alpha.kubernetes.io/target: "internal.${SECRET_DOMAIN}"
+          external-dns.alpha.kubernetes.io/target: internal.donohoo.io
         className: internal
         hosts:
-          - host: "{{ .Release.Name }}.${SECRET_DOMAIN}"
+          - host: "{{ .Release.Name }}.donohoo.io"
             paths:
               - path: /
                 service:
                   identifier: app
                   port: http
-          - host: "s3.${SECRET_DOMAIN}"
+          - host: s3.donohoo.io
             paths:
               - path: /
                 service:
@@ -112,8 +112,8 @@ spec:
                   port: s3
     persistence:
       data:
-        accessMode: ReadWriteMany
-        size: 1Ti
-        storageClass: synology-csi-retain
+        # Use the existing NFS volume claim for storage
+        # to use nfs version 3 while keeping the global config in 4
+        existingClaim: minio-nfs
         globalMounts:
-          - /data
+          - path: /data
