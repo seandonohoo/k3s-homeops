@@ -4,4 +4,4 @@ kind: Kustomization
 namespace: network
 resources:
   - ./minio.yaml
-  - ./s3-minio.yaml
+  # - ./s3-minio.yaml
