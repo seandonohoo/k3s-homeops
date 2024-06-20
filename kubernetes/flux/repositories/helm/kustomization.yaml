@@ -9,7 +9,9 @@ resources:
   - ./csi-driver-nfs.yaml
   - ./external-secrets.yaml
   - ./jetstack.yaml
+  - ./intel.yaml
   - ./metrics-server.yaml
+  - ./node-feature-discovery.yaml
   - ./openebs.yaml
   - ./piraeus.yaml
   - ./postfinance.yaml
