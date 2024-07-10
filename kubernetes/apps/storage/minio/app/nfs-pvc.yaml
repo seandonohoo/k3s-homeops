@@ -12,7 +12,7 @@ spec:
   storageClassName: ""
   persistentVolumeReclaimPolicy: Retain
   nfs:
-    server: nas.internal
+    server: 10.26.10.20
     path: /volume3/minio
   mountOptions:
     - nfsvers=3
