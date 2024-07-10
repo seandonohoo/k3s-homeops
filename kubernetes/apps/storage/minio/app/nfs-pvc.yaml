@@ -13,7 +13,7 @@ spec:
   persistentVolumeReclaimPolicy: Retain
   nfs:
     server: nas.internal
-    path: /volume3/k3s-fast
+    path: /volume3/minio
   mountOptions:
     - nfsvers=3
     - nconnect=8
