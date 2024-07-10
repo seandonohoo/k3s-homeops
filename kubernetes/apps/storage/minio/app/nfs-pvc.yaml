@@ -12,7 +12,7 @@ spec:
   storageClassName: ""
   persistentVolumeReclaimPolicy: Retain
   nfs:
-    server: 10.26.10.20
+    server: nas.internal
     path: /volume3/k3s-fast
   mountOptions:
     - nfsvers=3
