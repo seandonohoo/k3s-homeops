@@ -31,7 +31,7 @@ spec:
           app:
             image:
               repository: quay.io/minio/minio
-              tag: RELEASE.2024-06-11T03-13-30Z@sha256:bf461534d577e8600a22d4cac4830fc754cc6cce2547be399151c8763742f23e
+              tag: RELEASE.2024-06-29T01-20-47Z@sha256:fce0a90a37bb2887c850b68b61a0ac8ac02ea218b58eaea96bb7ca69eb503e20
             env:
               MINIO_API_CORS_ALLOW_ORIGIN: https://minio.donohoo.io,https://s3.donohoo.io
               MINIO_BROWSER_REDIRECT_URL: https://minio.donohoo.io
@@ -39,6 +39,8 @@ spec:
               MINIO_PROMETHEUS_URL: https://prometheus.donohoo.io
               MINIO_PROMETHEUS_AUTH_TYPE: public
               MINIO_SERVER_URL: https://s3.donohoo.io
+              MINIO_STORAGE_CLASS_RRS: EC:0
+              MINIO_STORAGE_CLASS_STANDARD: EC:0
               MINIO_UPDATE: "off"
             envFrom:
               - secretRef:
@@ -69,9 +71,9 @@ spec:
     defaultPodOptions:
       securityContext:
         runAsNonRoot: true
-        runAsUser: 1032
-        runAsGroup: 100
-        fsGroup: 100
+        runAsUser: 568
+        runAsGroup: 568
+        fsGroup: 568
         fsGroupChangePolicy: OnRootMismatch
         supplementalGroups: [10000]
         seccompProfile: { type: RuntimeDefault }
@@ -111,9 +113,9 @@ spec:
                   identifier: app
                   port: s3
     persistence:
-      data:
-        # Use the existing NFS volume claim for storage
-        # to use nfs version 3 while keeping the global config in 4
-        existingClaim: minio-nfs
+      config:
+        type: nfs
+        server: 10.26.10.20
+        path: /volume3/minio
         globalMounts:
           - path: /data

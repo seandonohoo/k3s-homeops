@@ -6,13 +6,13 @@ metadata:
   name: &app minio
   namespace: flux-system
 spec:
-  targetNamespace: storage
+  targetNamespace: default
   commonMetadata:
     labels:
       app.kubernetes.io/name: *app
   dependsOn:
     - name: external-secrets-stores
-  path: ./kubernetes/apps/storage/minio/app
+  path: ./kubernetes/apps/default/minio/app
   prune: true
   sourceRef:
     kind: GitRepository
@@ -21,3 +21,6 @@ spec:
   interval: 30m
   retryInterval: 1m
   timeout: 5m
+  postBuild:
+    substitute:
+      APP: *app
