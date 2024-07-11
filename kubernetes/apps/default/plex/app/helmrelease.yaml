@@ -126,7 +126,7 @@ spec:
       media:
         type: nfs
         server: 10.26.10.20
-        path: /volume1/media
+        path: /volume1/Media
         globalMounts:
           - path: /media
             readOnly: true
