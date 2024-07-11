@@ -111,13 +111,7 @@ spec:
       tmp:
         type: emptyDir
       tempdownload:
-        enabled: true
-        type: persistentVolumeClaim
-        storageClass: openebs-hostpath
-        accessMode: ReadWriteOnce
-        size: 250Gi
-        globalMounts:
-          - path: /tempdownloads
+        existingClaim: tempdownloads
       media:
         type: nfs
         server: 10.26.10.20
