@@ -6,11 +6,7 @@ resources:
   - ./externalsecret.yaml
   - ./pvc.yaml
   - ./helmrelease.yaml
-  - ../../../../templates/gatus/guarded
-configMapGenerator:
-  - name: radarr-configmap
-    files:
-      - pushover-notify.sh=./resources/pushover-notify.sh
+  # - ../../../../templates/gatus/guarded
 generatorOptions:
   disableNameSuffixHash: true
   annotations:

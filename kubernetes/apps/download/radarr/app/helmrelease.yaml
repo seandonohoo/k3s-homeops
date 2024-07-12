@@ -52,7 +52,7 @@ spec:
               RADARR__LOG__LEVEL: info
               RADARR__SERVER__PORT: &port 80
               RADARR__UPDATE__BRANCH: develop
-              TZ: America/New_York
+              TZ: America/Chicago
             envFrom: *envFrom
             probes:
               liveness: &probes
@@ -94,10 +94,10 @@ spec:
     ingress:
       app:
         annotations:
-          external-dns.alpha.kubernetes.io/target: internal.devbu.io
+          external-dns.alpha.kubernetes.io/target: internal.donohoo.io
         className: internal
         hosts:
-          - host: "{{ .Release.Name }}.devbu.io"
+          - host: "{{ .Release.Name }}.donohoo.io"
             paths:
               - path: /
                 service:
@@ -106,19 +106,11 @@ spec:
     persistence:
       config:
         existingClaim: radarr
-      pushover-notify:
-        type: configMap
-        name: radarr-configmap
-        defaultMode: 0775
-        globalMounts:
-          - path: /scripts/pushover-notify.sh
-            subPath: pushover-notify.sh
-            readOnly: true
       tmp:
         type: emptyDir
       media:
         type: nfs
-        server: expanse.internal
-        path: /eros/Media
+        server: 10.26.10.20
+        path: /volume1/Media
         globalMounts:
           - path: /media
