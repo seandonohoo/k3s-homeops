@@ -83,6 +83,8 @@ spec:
         fsGroupChangePolicy: OnRootMismatch
         supplementalGroups: [10000]
         seccompProfile: { type: RuntimeDefault }
+      nodeSelector:
+        kubernetes.io/hostname: "k3w3"
     service:
       app:
         controller: sabnzbd

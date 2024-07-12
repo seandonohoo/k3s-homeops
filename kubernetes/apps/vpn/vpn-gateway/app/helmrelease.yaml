@@ -81,7 +81,7 @@ spec:
       failureThreshold: 1
 
     nodeSelector:
-      kubernetes.io/hostname: "k3s2"
+      kubernetes.io/hostname: "k3w3"
 
     addons:
       netshoot:
