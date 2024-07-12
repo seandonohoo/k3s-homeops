@@ -86,6 +86,8 @@ spec:
         fsGroupChangePolicy: OnRootMismatch
         supplementalGroups: [10000]
         seccompProfile: { type: RuntimeDefault }
+      nodeSelector:
+        kubernetes.io/hostname: "k3w3"
     service:
       app:
         controller: qbittorrent
@@ -114,10 +116,11 @@ spec:
     persistence:
       config:
         existingClaim: qbittorrent
+      tempdownload:
+        existingClaim: tempdownloads
       media:
         type: nfs
-        server: expanse.internal
-        path: /eros/Media
+        server: 10.26.10.20
+        path: /volume1/Media
         globalMounts:
-          - path: /media/Downloads/qbittorrent
-            subPath: Downloads/qbittorrent
+          - path: /media
