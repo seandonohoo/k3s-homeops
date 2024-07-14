@@ -9,4 +9,5 @@ resources:
   - ./sabnzbd/ks.yaml
   - ./sonarr/ks.yaml
   - ./recyclarr/ks.yaml
+  - ./autobrr/ks.yaml
   # - ./speedtest-exporter/ks.yaml
