@@ -7,4 +7,4 @@ resources:
   - ./namespace.yaml
   # Flux-Kustomizations
   - ./plex/ks.yaml
-  - ./overseer/ks.yaml
+  - ./overseerr/ks.yaml
