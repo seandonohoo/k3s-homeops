@@ -9,7 +9,7 @@ metadata:
     app.kubernetes.io/instance: *app
 spec:
   type: ExternalName
-  externalName: "ha-srvr.internal"
+  externalName: "ha-srvr.martinirossi.net"
   ports:
     - name: http
       port: &port 8123
