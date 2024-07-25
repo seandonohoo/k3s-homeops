@@ -1,0 +1,45 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: &app homeassistant
+  namespace: networking
+  labels:
+    app.kubernetes.io/name: *app
+    app.kubernetes.io/instance: *app
+spec:
+  type: ExternalName
+  externalName: "ha-srvr.internal"
+  ports:
+    - name: http
+      port: &port 8123
+      protocol: TCP
+      targetPort: *port
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: &app homeassistant
+  namespace: networking
+  annotations:
+    external-dns.home.arpa/enabled: "true"
+    external-dns.alpha.kubernetes.io/target: "external.${SECRET_DOMAIN}"
+  labels:
+    app.kubernetes.io/name: *app
+    app.kubernetes.io/instance: *app
+spec:
+  ingressClassName: external
+  rules:
+    - host: &host "ha.${SECRET_DOMAIN}"
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: *app
+                port:
+                  number: 8123
+  tls:
+    - hosts:
+        - *host
