@@ -90,9 +90,9 @@ spec:
     persistence:
       config:
         existingClaim: filebrowser
-      eros:
+      media:
         type: nfs
-        server: expanse.internal
-        path: /eros
+        server: 10.26.10.20
+        path: /volume1
         globalMounts:
-          - path: /eros
+          - path: /volume1
