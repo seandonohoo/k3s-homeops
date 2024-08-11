@@ -93,6 +93,6 @@ spec:
       media:
         type: nfs
         server: 10.26.10.20
-        path: /volume1
+        path: /volume1/Media
         globalMounts:
-          - path: /volume1
+          - path: /volume1/Media
