@@ -17,6 +17,9 @@ data:
         - Google Calendar:
             - icon: google-calendar.png
               href: 'https://calendar.google.com'
+        - Proton
+            - icon: pronto.png
+              href: 'https://mail.proton.me'
     - Media:
         - YouTube:
             - icon: youtube.png
@@ -99,13 +102,6 @@ data:
         style: row
         columns: 3
         icon: mdi-network
-      Video:
-        style: column
-        icon: mdi-play-circle
-      Books:
-        style: row
-        columns: 2
-        icon: mdi-book
       Infrastructure:
         style: row
         columns: 5
@@ -124,7 +120,7 @@ data:
         icon: mdi-download-circle
   widgets.yaml: |
     - logo:
-        icon: https://raw.githubusercontent.com/joryirving/home-ops/main/docs/src/assets/icons/lds-transparent.png
+        icon: https://avatars.githubusercontent.com/u/542109
     - search:
         provider: [duckduckgo, google]
         focus: false
@@ -141,7 +137,7 @@ data:
         nodes:
           cpu: true
           memory: true
-          show: false
+          show: true
           showLabel: true
     - openmeteo:
         label: Home
