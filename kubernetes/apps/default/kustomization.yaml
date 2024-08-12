@@ -9,3 +9,4 @@ resources:
   - ./plex/ks.yaml
   - ./overseerr/ks.yaml
   - ./filebrowser/ks.yaml
+  - ./homepage/ks.yaml
