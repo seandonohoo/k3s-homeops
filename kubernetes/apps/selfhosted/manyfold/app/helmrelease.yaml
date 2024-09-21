@@ -141,7 +141,7 @@ spec:
 
     persistence:
       data:
-        existingClaim: manyfold-data
+        existingClaim: manyfold
         advancedMounts:
           manyfold:
             main:
