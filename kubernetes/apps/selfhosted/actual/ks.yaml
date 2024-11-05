@@ -26,3 +26,4 @@ spec:
     substitute:
       APP: *appname
       VOLSYNC_CLAIM: actual-data
+      VOLSYNC_CAPACITY: 15Gi
