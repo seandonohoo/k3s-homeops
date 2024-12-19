@@ -7,8 +7,8 @@ metadata:
 spec:
   staticConfigs:
     - targets:
-        - 10.26.20.36:9100
-        - 10.26.20.87:9100
+        # - 10.26.20.36:9100
+        # - 10.26.20.87:9100
         - 10.26.20.218:9100
   metricsPath: /metrics
   relabelings:
