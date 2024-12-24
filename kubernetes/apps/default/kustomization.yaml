@@ -10,4 +10,4 @@ resources:
   - ./overseerr/ks.yaml
   - ./filebrowser/ks.yaml
   - ./homepage/ks.yaml
-  - ./atuin/ks.yaml
+  # - ./atuin/ks.yaml
