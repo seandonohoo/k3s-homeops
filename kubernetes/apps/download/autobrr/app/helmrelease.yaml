@@ -69,8 +69,6 @@ spec:
               limits:
                 memory: 256Mi
     defaultPodOptions:
-      annotations:
-        setGateway: "true"
       securityContext:
         runAsNonRoot: true
         runAsUser: 65534
