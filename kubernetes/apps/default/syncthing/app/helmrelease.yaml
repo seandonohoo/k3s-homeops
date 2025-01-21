@@ -38,11 +38,9 @@ spec:
               capabilities: { drop: ["ALL"] }
             resources:
               requests:
-                cpu: 15m
-                memory: 100m
+                memory: 100Mi
               limits:
-                cpu: 100m
-                memory: 200m
+                memory: 200Mi
     defaultPodOptions:
       securityContext:
         runAsNonRoot: true
@@ -97,6 +95,7 @@ spec:
                 service:
                   identifier: app
                   port: http
+
     persistence:
       media:
         enabled: true
