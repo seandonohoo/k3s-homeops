@@ -24,9 +24,9 @@ spec:
 
         pod:
           securityContext:
-          runAsNonRoot: true
-          runAsUser: 1000
-          runAsGroup: 1000
+            runAsNonRoot: true
+            runAsUser: 1000
+            runAsGroup: 1000
 
         containers:
           app:
