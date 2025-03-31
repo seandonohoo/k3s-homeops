@@ -7,4 +7,4 @@ resources:
   - ./namespace.yaml
   # Flux-Kustomizations
   - ./manyfold/ks.yaml
-  - ./actual/ks.yaml
+  # - ./actual/ks.yaml
