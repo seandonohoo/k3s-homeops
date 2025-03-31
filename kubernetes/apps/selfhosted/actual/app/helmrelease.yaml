@@ -21,11 +21,12 @@ spec:
       actual:
         annotations:
           reloader.stakater.com/auto: "true"
-    defaultPodOptions:
-      securityContext:
-        runAsNonRoot: true
-        runAsUser: 1000
-        runAsGroup: 100
+
+        pod:
+          securityContext:
+          runAsNonRoot: true
+          runAsUser: 1000
+          runAsGroup: 1000
 
         containers:
           app:
