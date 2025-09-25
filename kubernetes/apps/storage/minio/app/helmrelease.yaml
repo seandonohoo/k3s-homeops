@@ -116,6 +116,6 @@ spec:
       config:
         type: nfs
         server: 10.26.10.20
-        path: /volume3/minio
+        path: /volume2/minio
         globalMounts:
           - path: /data
